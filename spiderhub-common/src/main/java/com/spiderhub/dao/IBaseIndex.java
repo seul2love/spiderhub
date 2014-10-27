@@ -1,4 +1,4 @@
-package com.spiderhub.dao;
+package com.spiderhub.commons.dao;
 
 import java.io.IOException;
 import java.util.List;
@@ -7,6 +7,7 @@ import java.util.Map;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.IndexWriter;
+import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 
 /**
@@ -15,7 +16,6 @@ import org.apache.lucene.search.Query;
  *
  */
 public interface IBaseIndex {
-	
 	/**
 	 * 获取索引写对象
 	 * @return
@@ -70,4 +70,17 @@ public interface IBaseIndex {
 	 */
 	public List<Document> search(String searchField, String keyWord, int topCount);
 	
+	/**
+	 * 高亮显示查询的内容
+	 * @param fieldName
+	 * @param fieldValue
+	 * @param topCount
+	 * @return
+	 */
+	public List<String> searchToHighlighter(String fieldName, String fieldValue, int topCount);
+	
+	/**
+	 * 关闭操作
+	 */
+	public void doClose();
 }

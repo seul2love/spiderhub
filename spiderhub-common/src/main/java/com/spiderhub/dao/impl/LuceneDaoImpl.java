@@ -1,4 +1,5 @@
-package com.spiderhub.dao.impl;
+package com.spiderhub.commons.dao.impl;
+
 
 import java.io.Reader;
 import java.util.HashMap;
